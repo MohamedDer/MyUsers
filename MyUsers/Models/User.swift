@@ -9,6 +9,25 @@
 import Foundation
 import ObjectMapper
 
-class User {
+class User: Mappable {
+    
+    var gender: String?
+    var name: Name?
+    var profilePicture: Picture?
+    var phone: Int?
+    var email: String?
+
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        gender    <- map["gender"]
+        name    <- map["name"]
+        profilePicture    <- map["picture"]
+        phone    <- map["phone"]
+        email    <- map["email"]
+    }
     
 }
