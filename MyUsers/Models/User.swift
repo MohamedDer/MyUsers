@@ -14,7 +14,7 @@ class User: Mappable {
     var gender: String?
     var name: Name?
     var profilePicture: Picture?
-    var phone: Int?
+    var phone: String?
     var email: String?
 
     
