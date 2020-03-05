@@ -5,10 +5,17 @@ target 'MyUsers' do
   use_frameworks!
 
   # Pods for MyUsers
+    #RxSwift
     pod 'RxSwift', '~> 5'
     pod 'RxCocoa', '~> 5'
-    pod 'ObjectMapper'
+
+    #Network Utilities
     pod 'Alamofire', '~> 5.0'
+    pod 'Kingfisher'
+
+    # Utils
+    pod 'ObjectMapper'
+
 
 
 end

@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (5.0.0)
+  - Kingfisher (5.13.1):
+    - Kingfisher/Core (= 5.13.1)
+  - Kingfisher/Core (5.13.1)
   - ObjectMapper (3.5.1)
   - RxCocoa (5.0.1):
     - RxRelay (~> 5)
@@ -10,13 +13,15 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.0)
+  - Kingfisher
   - ObjectMapper
   - RxCocoa (~> 5)
   - RxSwift (~> 5)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - Alamofire
+    - Kingfisher
     - ObjectMapper
     - RxCocoa
     - RxRelay
@@ -24,11 +29,12 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 58ff2bfb8daaacaa233d5c36e37b10a5248f59b1
+  Kingfisher: f33a848445e33c543620812158dc5d47f6bf90df
   ObjectMapper: 70187b8941977c62ccfb423caf6b50be405cabf0
   RxCocoa: e741b9749968e8a143e2b787f1dfbff2b63d0a5c
   RxRelay: 89d54507f4fd4d969e6ec1d4bd7f3673640b4640
   RxSwift: e2dc62b366a3adf6a0be44ba9f405efd4c94e0c4
 
-PODFILE CHECKSUM: 4cd3caaeaddaa68e43e3400b84475e3a6b476e21
+PODFILE CHECKSUM: 732b5423f80ed2d76cca0bc4261fe1598adb2e27
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.4
