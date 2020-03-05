@@ -48,10 +48,5 @@ class UserTableViewCell: UITableViewCell {
         super.init(coder: coder)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-    }
-
 
 }

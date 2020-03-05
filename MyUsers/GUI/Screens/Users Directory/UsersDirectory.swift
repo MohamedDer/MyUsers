@@ -28,7 +28,6 @@ class UsersDirectoryViewController: UIViewController {
         userViewModel.fetchUsers()
     }
 
-
     
     fileprivate func setupUsersTableView() {
         usersTableView.frame = view.bounds
@@ -37,13 +36,14 @@ class UsersDirectoryViewController: UIViewController {
         view.addSubview(usersTableView)
     }
     
+    
+    // MARK: BINDING
     fileprivate func setupbinding() {
         // TO DO : Add a loader view bar and bind it to loading
         //  userViewModel.loading.bind(to: loader.isAnimated).disposed(by: disposeBag)
         userViewModel.error.observeOn(MainScheduler.instance)
                    .subscribe(onNext: { (error) in
                     //TO DO Show error in pop-up
-                        print(error)
                    })
                    .disposed(by: disposeBag)
 
@@ -63,11 +63,10 @@ class UsersDirectoryViewController: UIViewController {
             self?.navigationController?.pushViewController(detailVC, animated: false)
         }).disposed(by: disposeBag)
         
-        usersTableView.rx.contentOffset.subscribe {
+        usersTableView.rx.contentOffset.distinctUntilChanged().subscribe {
             if ($0.element!.y + self.usersTableView.frame.size.height > self.usersTableView.contentSize.height) {
                 self.userViewModel.fetchUsers()
             }
-           
         }.disposed(by: disposeBag)
         
     }
