@@ -26,4 +26,10 @@ struct Name: Mappable {
         last <- map["last"]
     }
     
+    func getCompleteName() -> String? {
+        if let title = title, let first = first,let last = last {
+            return "\(title) \(first) \(last.uppercased())"
+        }
+        return nil
+    }
 }
