@@ -24,7 +24,7 @@ class UsersViewModel {
 
             public func fetchUsers(){
                 
-                Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+//                Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
                     
                     self.loading.onNext(true)
                     let params = ["results": 10]
@@ -41,7 +41,7 @@ class UsersViewModel {
                             self.error.onNext(error.localizedDescription)
 
                         }
-                    }
+//                    }
                 }
                 
                 

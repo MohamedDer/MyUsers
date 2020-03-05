@@ -38,19 +38,16 @@ class UsersDirectoryViewController: UIViewController {
     }
     
     fileprivate func setupbinding() {
-
-        //        userViewModel.loading.bind(to: self.testV.rx.isHidden).disposed(by: disposeBag)
-        userViewModel
-                   .error
-                   .observeOn(MainScheduler.instance)
+        // TO DO : Add a loader view bar and bind it to loading
+        //  userViewModel.loading.bind(to: loader.isAnimated).disposed(by: disposeBag)
+        userViewModel.error.observeOn(MainScheduler.instance)
                    .subscribe(onNext: { (error) in
                     //TO DO Show error in pop-up
                         print(error)
                    })
                    .disposed(by: disposeBag)
 
-        userViewModel
-            .users
+        userViewModel.users
             .observeOn(MainScheduler.instance)
             .bind(to: users)
             .disposed(by: disposeBag)
@@ -59,13 +56,20 @@ class UsersDirectoryViewController: UIViewController {
             cell.user = user
         }.disposed(by: disposeBag)
 
-        usersTableView.rx.modelSelected(User.self)
-        .subscribe(onNext: { [weak self] user in
+        usersTableView.rx.modelSelected(User.self).subscribe(onNext: { [weak self] user in
            let detailVC = UserDetailViewController()
             detailVC.user = user
             detailVC.modalPresentationStyle = .fullScreen
             self?.navigationController?.pushViewController(detailVC, animated: false)
         }).disposed(by: disposeBag)
+        
+        usersTableView.rx.contentOffset.subscribe {
+            if ($0.element!.y + self.usersTableView.frame.size.height > self.usersTableView.contentSize.height) {
+                self.userViewModel.fetchUsers()
+            }
+           
+        }.disposed(by: disposeBag)
+        
     }
     
 }
