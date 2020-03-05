@@ -14,10 +14,7 @@ class ProfileImageView: UIImageView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-//        self.layer.cornerRadius = self.bounds.width/2
-//        self.layer.shadowColor = UIColor.black.cgColor
-//        self.layer.shadowOffset = CGSize(width: 5, height: 5)
-
+        contentMode = .scaleAspectFit
     }
     
     required init?(coder: NSCoder) {

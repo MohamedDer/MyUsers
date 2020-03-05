@@ -22,17 +22,8 @@ class UsersDirectoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        title = "Users Directory"
         setupUsersTableView()
-
-//        let navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 44))
-//        view.addSubview(navBar)
-//
-//        let navItem = UINavigationItem(title: "Users Directory")
-//
-//        navBar.setItems([navItem], animated: false)
-//        
-        
         setupbinding()
         userViewModel.fetchUsers()
     }
@@ -41,7 +32,6 @@ class UsersDirectoryViewController: UIViewController {
     
     fileprivate func setupUsersTableView() {
         usersTableView.frame = view.bounds
-        usersTableView.bounds.size.height = view.bounds.height * 0.8
         usersTableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserTableViewCell")
         usersTableView.separatorStyle = .none
         view.addSubview(usersTableView)
@@ -74,25 +64,9 @@ class UsersDirectoryViewController: UIViewController {
            let detailVC = UserDetailViewController()
             detailVC.user = user
             detailVC.modalPresentationStyle = .fullScreen
-
             self?.navigationController?.pushViewController(detailVC, animated: false)
-//            self!.present(detailVC, animated: true, completion: nil)
         }).disposed(by: disposeBag)
     }
     
-    
-    
-//    func getTopViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
-//        if let nav = base as? UINavigationController {
-//            return getTopViewController(base: nav.visibleViewController)
-//
-//        } else if let tab = base as? UITabBarController, let selected = tab.selectedViewController {
-//            return getTopViewController(base: selected)
-//
-//        } else if let presented = base?.presentedViewController {
-//            return getTopViewController(base: presented)
-//        }
-//        return base
-//    }
 }
 

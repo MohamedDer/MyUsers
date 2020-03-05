@@ -27,7 +27,7 @@ class UserTableViewCell: UITableViewCell {
     }()
     
     private let userImageView : ProfileImageView = {
-        let imgView = ProfileImageView(frame: CGRect(x: 0, y: 0, width: 70, height: 70))
+        let imgView = ProfileImageView(frame: CGRect(x: 0, y: 0, width: 44, height: 44))
         imgView.contentMode = .scaleAspectFit
         imgView.clipsToBounds = true
         return imgView
@@ -35,13 +35,13 @@ class UserTableViewCell: UITableViewCell {
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
         let stackView = UIStackView(arrangedSubviews: [userImageView,nameLabel])
+        stackView.frame = bounds
         stackView.distribution = .fillProportionally
         stackView.axis = .horizontal
-        stackView.spacing = 20
-        stackView.frame = bounds
+        stackView.spacing = 15
         addSubview(stackView)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -50,7 +50,6 @@ class UserTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         
     }
 

@@ -19,7 +19,7 @@ class UserDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        edgesForExtendedLayout = []
         view.backgroundColor = .white
         // Setup  image
         let pictureImageView = ProfileImageView(frame: CGRect())
@@ -37,13 +37,14 @@ class UserDetailViewController: UIViewController {
         // stack
         let stackView = UIStackView(arrangedSubviews: [pictureImageView,firstNameLabel,lastNameLabel,emailLabel,phoneLabel])
         stackView.translatesAutoresizingMaskIntoConstraints = false
-                stackView.distribution = .fill
-               stackView.axis = .vertical
-               stackView.spacing = 20
-               stackView.frame = CGRect(x: 0, y: 50, width: view.bounds.width, height: 200)
+        stackView.distribution = .fill
+        stackView.axis = .vertical
+        stackView.spacing = 20
         view.addSubview(stackView)
-        
-        // Return button
+        stackView.rightAnchor.constraint(equalToSystemSpacingAfter: view.rightAnchor, multiplier: 1).isActive = true
+        stackView.leftAnchor.constraint(equalToSystemSpacingAfter: view.leftAnchor, multiplier: 1).isActive = true
+        stackView.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 1.5).isActive = true
+
 
     }
 
