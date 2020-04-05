@@ -6,25 +6,22 @@
 //  Copyright © 2020 Mohamed Derkaoui. All rights reserved.
 //
 
-import UIKit
 import Kingfisher
-
+import UIKit
 
 class ProfileImageView: UIImageView {
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         contentMode = .scaleAspectFit
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
+
     func setupImageFrom(stringURL: String?) {
         if let stringURL = stringURL, let url = URL(string: stringURL) {
-            self.kf.setImage(with: url)
+            kf.setImage(with: url)
         }
     }
-    
 }

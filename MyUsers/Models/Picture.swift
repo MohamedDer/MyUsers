@@ -9,21 +9,16 @@
 import Foundation
 import ObjectMapper
 
-
-
 struct Picture: Mappable {
-
     var large: String?
     var medium: String?
     var thumbnail: String?
-    
-    init?(map: Map) {
-    }
-    
+
+    init?(map _: Map) {}
+
     mutating func mapping(map: Map) {
         large <- map["large"]
         medium <- map["medium"]
         thumbnail <- map["thumbnail"]
     }
-    
 }

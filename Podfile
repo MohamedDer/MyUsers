@@ -15,6 +15,8 @@ target 'MyUsers' do
 
     # Utils
     pod 'ObjectMapper'
+    pod 'SwiftLint'
+
 
 
 
